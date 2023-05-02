@@ -1,18 +1,10 @@
 import React from 'react'
-import {Box, Divider, Typography} from "@mui/material"
-import {DataGrid, GridColDef} from "@mui/x-data-grid"
+import { Box, Divider, Typography } from "@mui/material"
 import axios from "axios"
+import Table from './components/table/table'
+import { Row } from './types/row'
 
-interface Row {
-    id: string
-    isProduction: boolean
-    displayName: string
-    organizationUnitId: string
-    createdAt: string
-    updatedAt: string
-}
-
-function App() {
+const App = () => {
     const [rows, setRows] = React.useState<Row[]>([])
     const [pageSize, setPageSize] = React.useState<number>(25)
     const [loading, setLoading] = React.useState<boolean>(true)
@@ -35,27 +27,12 @@ function App() {
             .finally(() => setLoading(false))
     }, [])
 
-    const columns: GridColDef[] = [
-        { field: 'API', headerName: 'API', flex: 0.2 },
-        { field: 'Description', headerName: 'Description', flex: 0.6 },
-        { field: 'Category', headerName: 'Category', flex: 0.2 },
-    ]
-
     return (
         <Box display={"flex"} justifyContent={"center"} flexDirection={"column"}>
             <Typography variant={'h2'} textAlign={"center"} marginBottom={1}>Template</Typography>
             <Divider/>
             <Box marginTop={2}>
-                <DataGrid
-                    columns={columns}
-                    rows={rows.splice(0,10)}
-                    getRowId={el => el.API}
-                    loading={loading}
-                    disableSelectionOnClick={true}
-                    autoHeight
-                    pageSize={pageSize}
-                    onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                />
+                <Table rows={rows} loading={loading} pageSize={pageSize} setPageSize={setPageSize}/>
             </Box>
         </Box>
     )

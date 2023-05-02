@@ -4,13 +4,24 @@ A template for MaterialUI frontend with Vite as build tool and react.
 
 ## Commands
 
-First of all all packages need to be installed by ˋnpm iˋ. 
+First of all all packages need to be installed by `npm i`
 
 ### Run in dev environment
 
-ˋnpm run devˋ 
+`npm run dev`
 
 ### Build for production deploymemt
 
-ˋnpm run buildˋ 
+`npm run build`
 
+### Test
+
+`npm run test`
+
+### Test coverage
+
+`npm run coverage`
+
+### Test UI
+
+`npm run test-ui`
