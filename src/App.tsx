@@ -3,6 +3,7 @@ import { Box, Divider, Typography } from "@mui/material"
 import axios from "axios"
 import Table from './components/table/table'
 import { Row } from './types/row'
+import styled from '@emotion/styled'
 
 const App = () => {
     const [rows, setRows] = React.useState<Row[]>([])
@@ -28,14 +29,20 @@ const App = () => {
     }, [])
 
     return (
-        <Box display={"flex"} justifyContent={"center"} flexDirection={"column"}>
+        <Container>
             <Typography variant={'h2'} textAlign={"center"} marginBottom={1}>Template</Typography>
             <Divider/>
             <Box marginTop={2}>
                 <Table rows={rows} loading={loading} pageSize={pageSize} setPageSize={setPageSize}/>
             </Box>
-        </Box>
+        </Container>
     )
 }
+
+const Container = styled(Box)`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`
 
 export default App
