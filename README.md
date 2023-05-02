@@ -25,3 +25,8 @@ First of all all packages need to be installed by `npm i`
 ### Test UI
 
 `npm run test-ui`
+
+
+### Storybook
+
+`npm run storybook`

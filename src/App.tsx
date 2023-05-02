@@ -1,9 +1,10 @@
 import React from 'react'
 import { Box, Divider, Typography } from "@mui/material"
 import axios from "axios"
-import Table from './components/table/table'
-import { Row } from './types/row'
+import { Row } from './types/Row'
 import styled from '@emotion/styled'
+import { Table } from './components/Table'
+import { GridColDef } from '@mui/x-data-grid'
 
 const App = () => {
     const [rows, setRows] = React.useState<Row[]>([])
@@ -28,12 +29,18 @@ const App = () => {
             .finally(() => setLoading(false))
     }, [])
 
+    const columns: GridColDef[] = [
+      { field: 'API', headerName: 'API', flex: 0.2 },
+      { field: 'Description', headerName: 'Description', flex: 0.6 },
+      { field: 'Category', headerName: 'Category', flex: 0.2 },
+    ]
+
     return (
         <Container>
             <Typography variant={'h2'} textAlign={"center"} marginBottom={1}>Template</Typography>
             <Divider/>
             <Box marginTop={2}>
-                <Table rows={rows} loading={loading} pageSize={pageSize} setPageSize={setPageSize}/>
+                <Table rows={rows} loading={loading} pageSize={pageSize} setPageSize={setPageSize} columns={columns}/>
             </Box>
         </Container>
     )
