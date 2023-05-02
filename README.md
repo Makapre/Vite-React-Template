@@ -2,6 +2,16 @@
 
 A template for MaterialUI frontend with Vite as build tool and react.
 
+## Tools
+
+- React
+- Vite
+- TypeScript
+- Storybook
+- Vitest
+- MaterialUI
+- Axios
+
 ## Commands
 
 First of all all packages need to be installed by `npm i`
