@@ -1,0 +1,56 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "overrides": [
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["vite.config.ts"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "import-newlines"
+  ],
+  "rules": {
+    "require-await": ["error"], // error when function is async, but no await is used
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-floating-promises": ["error"],
+    "indent": ["error", 2], // only 2 spaces allowed for tab
+    "semi": [2, "never"], // no semicolons allowed
+    "object-curly-spacing": [2, "always"], // spacing inside curly backets like imports
+    "comma-spacing": "error", // spacing after comma
+    "keyword-spacing": ["error", { "after": true }], // spacing after keywords, e.g. if () {}
+    "space-before-blocks": [2, "always"], // spacing before blocks, e.g. if () {}
+    "camelcase": "error", // only camelcase variable names
+    "quotes": ["error", "single"], // error when using double quotes, only single quotes and backticks are allowed
+    "react/jsx-max-props-per-line": [2, { "maximum": { "single": 3, "multi": 1 } }], // handling too many props in one row
+    "react/jsx-first-prop-new-line": ["error", "multiline"], // when the rule above is applied, the first prop should be in an own row like the others
+    "import-newlines/enforce": [ // new line for each import, when there a more than 3 import in one row
+      "error",
+      {
+        "items": 3,
+        "semi": false
+      }
+    ],
+    "react/jsx-closing-bracket-location": [2, "line-aligned"], // new line for closing bracket and aligned to opening line
+    "react/jsx-equals-spacing": "error", // no spacing before or after a prop is set at a component
+    "react/jsx-pascal-case": "error" // enforces PascalCase for component definitions e.g incorrect: dataTable, correct: DataTable
+
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // React version. "detect" automatically picks the version you have installed.
+    }
+  }
+}
