@@ -8,6 +8,10 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 4711
   },
+  preview: {
+    host: '0.0.0.0',
+    port: 4712,
+  },
   test: {
     include: ['src/test/**/*.test.{ts,tsx}'],
     coverage: {

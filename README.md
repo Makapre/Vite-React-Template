@@ -14,9 +14,17 @@ A template for MaterialUI frontend with Vite as build tool and react.
 
 ## Commands
 
-First of all all packages need to be installed by `npm i`
+First of all all packages need to be installed by `npm i` only when developing locally, not necessary when using docker
 
-### Run in dev environment
+### Development
+
+`docker-compose up development`
+
+### Production preview
+
+`docker-compose up production`
+
+### Run locally
 
 `npm run dev`
 
@@ -36,13 +44,6 @@ First of all all packages need to be installed by `npm i`
 
 `npm run test-ui`
 
-
 ### Storybook
 
-`npm run storybook`
-
-## Docker
-
-### Start local docker dev setup
-
-`docker-compose up`
+`docker-compose up storybook`

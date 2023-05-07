@@ -1,6 +1,18 @@
 version: '3'
 services:
-  app:
+  production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PORT: 4712
+    volumes:
+      - .:/app
+    ports:
+      - "4712:4712"
+    command: npm run preview
+
+  development:
     build:
       context: .
       dockerfile: Dockerfile
@@ -8,3 +20,17 @@ services:
       - .:/app
     ports:
       - "4711:4711"
+    command: npm run dev
+
+  storybook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PORT: 6006
+        STORYBOOK: "yes"
+    volumes:
+      - .:/app
+    ports:
+      - "6006:6006"
+    command: npm run storybook
