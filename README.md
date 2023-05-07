@@ -40,3 +40,9 @@ First of all all packages need to be installed by `npm i`
 ### Storybook
 
 `npm run storybook`
+
+## Docker
+
+### Start local docker dev setup
+
+`docker-compose up`

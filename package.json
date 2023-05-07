@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "preview": "vite preview",
+    "optimize": "vite optimize",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "test-ui": "vitest --ui",
