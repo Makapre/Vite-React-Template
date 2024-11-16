@@ -16,9 +16,9 @@ export const Table = (props: Props) => {
     rows={props.rows.splice(0, 10)}
     getRowId={el => el.API}
     loading={props.loading}
-    disableSelectionOnClick={true}
+    // disableSelectionOnClick={true}
     autoHeight
-    pageSize={props.pageSize}
-    onPageSizeChange={(newPageSize: number) => props.setPageSize(newPageSize)}
+    //pageSize={props.pageSize}
+    // onPageSizeChange={(newPageSize: number) => props.setPageSize(newPageSize)}
   />
 }

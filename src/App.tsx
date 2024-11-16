@@ -15,14 +15,14 @@ const App = () => {
     'Content-Type': 'application/json'
   }
 
-  const API_URL = 'https://api.publicapis.org/entries'
+  const API_URL = 'https://cat-fact.herokuapp.com/facts'
 
   React.useEffect(() => {
     axios.get(API_URL, { headers: Headers })
       .then(response => {
         if (response.status === 200) {
           console.log(response.data)
-          setRows(response.data.entries)
+          setRows(response.data)
         }
       })
       .catch(e => console.log(e))
@@ -30,9 +30,8 @@ const App = () => {
   }, [])
 
   const columns: GridColDef[] = [
-    { field: 'API', headerName: 'API', flex: 0.2 },
-    { field: 'Description', headerName: 'Description', flex: 0.6 },
-    { field: 'Category', headerName: 'Category', flex: 0.2 },
+    { field: 'Fact', headerName: 'text', flex: 0.8 },
+    { field: 'Animal', headerName: 'type', flex: 0.2 }
   ]
 
   return (
